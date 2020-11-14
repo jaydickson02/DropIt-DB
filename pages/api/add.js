@@ -21,7 +21,7 @@ export default async (req, res) => {
     let dbEntry = {
       type: req.body.type, 
       serialNumber: req.body.serialNumber,
-      currentUser: req.body.currentUser,
+      currentUser: {name: req.body.currentUser},
       condition: req.body.deviceCondition
     };
 
