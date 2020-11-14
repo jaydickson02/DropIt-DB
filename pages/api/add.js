@@ -22,15 +22,15 @@ export default async (req, res) => {
     console.log(req.body)
   }
   let dbEntry;
-  
+
   if(dbEntry){
 
   await db.collection("Devices").insertOne(dbEntry, (err, res) => {
         if (err) throw err;
         console.log("1 document inserted")
       });
-
-      res.send("1 document inserted");
-      
     }
+      res.send("Completed");
+      
+    
 };
