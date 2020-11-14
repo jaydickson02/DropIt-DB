@@ -21,7 +21,8 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     console.log(req.body)
   }
-
+  let dbEntry;
+  
   if(dbEntry){
 
   await db.collection("Devices").insertOne(dbEntry, (err, res) => {
