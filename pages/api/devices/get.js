@@ -2,6 +2,10 @@
 const url = require('url')
 const MongoClient = require('mongodb').MongoClient
 
+const get = () => {
+
+
+
 // Create cached connection variable
 let cachedDb = null
 
@@ -28,7 +32,7 @@ async function connectToDatabase(uri) {
 
 // The main, exported, function of the endpoint,
 // dealing with the request and subsequent response
-module.exports = async (req, res) => {
+primary = async (req, res) => {
   // Get a database connection, cached or otherwise,
   // using the connection string environment variable as the argument
   const db = await connectToDatabase(process.env.MONGODB_URI)
@@ -42,3 +46,9 @@ module.exports = async (req, res) => {
   // Respond with a JSON string of all users in the collection
   res.status(200).json({ devices })
 }
+
+primary()
+
+}
+
+export default get;
