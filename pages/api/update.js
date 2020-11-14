@@ -1,6 +1,6 @@
 import { connectToDatabase } from "../../util/mongodb";
-import Cors from 'cors'
-import initMiddleware from '../../lib/init_middleware'
+import Cors from 'cors';
+import initMiddleware from '../../lib/init_middleware';
 
 // Initialize the cors middleware
 const cors = initMiddleware(
