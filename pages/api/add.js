@@ -17,7 +17,7 @@ export default async (req, res) => {
   await cors(req, res);
 
   if (req.method === 'POST') {
-
+    console.log(req.body);
     let dbEntry = {
       type: req.body.type, 
       serialNumber: req.body.serialNumber,
