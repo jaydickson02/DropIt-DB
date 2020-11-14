@@ -21,7 +21,7 @@ export default async (req, res) => {
     let updatedValues = {};
 
     for(var key in req.body){
-        if(req.body[key]){
+        if(req.body[key] && key != 'idSerialNumber'){
             update[key] = req.body[key]
         }
     }
