@@ -16,21 +16,25 @@ export default async (req, res) => {
 
   await cors(req, res);
 
-  const { db } = await connectToDatabase();
-
   if (req.method === 'POST') {
-    console.log(req.body)
+
+    let dbEntry = {
+      type: req.body.type, 
+      serialNumber: req.body.serialNumber,
+      currentUser: req.body.currentUser,
+      condition: req.body.deviceCondition
+    };
+
+    const { db } = await connectToDatabase();
+
+    await db.collection("Devices").insertOne(dbEntry, (err, res) => {
+      if (err) throw err;
+      console.log("1 document inserted");
+    });
+
+    res.status(200).send('Device Registered');
+  } else {
+    res.send('No request found');
   }
-  let dbEntry;
-
-  if(dbEntry){
-
-  await db.collection("Devices").insertOne(dbEntry, (err, res) => {
-        if (err) throw err;
-        console.log("1 document inserted")
-      });
-    }
-      res.send("Completed");
-      
-    
+ 
 };
