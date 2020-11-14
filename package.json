@@ -1,22 +1,16 @@
 {
-  "name": "dropit-db",
-  "version": "1.0.0",
-  "description": "Next app exposing API endpoints for DropIT serverless database. Running MongoDB.",
-  "main": "index.js",
+  "name": "with-mongodb",
+  "version": "0.1.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaydickson02/DropIt-DB.git"
-  },
-  "author": "Jay Dickson",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jaydickson02/DropIt-DB/issues"
-  },
-  "homepage": "https://github.com/jaydickson02/DropIt-DB#readme",
   "dependencies": {
-    "mongodb": "^3.6.2"
-  }
+    "mongodb": "^3.5.9",
+    "next": "latest",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "license": "MIT"
 }
