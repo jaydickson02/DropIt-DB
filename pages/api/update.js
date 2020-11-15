@@ -18,26 +18,34 @@ export default async (req, res) => {
 
   if (req.method === 'POST') {
 
-    let students;
+    
     let updatedValues = {};
 
+    //Filters values that need extra formatting before being updated in the db. Future proofs adding various values down the line.
     for(var key in req.body){
-        if(req.body[key] && key != 'idSerialNumber'){
+        if(req.body[key] && key != 'idSerialNumber' && key != 'student'){
             updatedValues[key] = req.body[key]
         }
     }
 
     const { db } = await connectToDatabase();
 
-    //This is super bad, please fix later. Was temp for testing. See newField.js in DropIt App.
-    for(var key in updatedValues){
-        if(key == 'students'){
-            const device = await db.collection("Devices").find({serialNumber: req.body.idSerialNumber}).toArray();
-            students = device;
-            //students.push({name: updatedValues[key], date: '10/10/2010', id:'123'})
+    //Handles student update, ensures previous students are not removed, i'm sure there is a way to do this without re-adding every student. Fix later.
+    if(req.body.student){
+        let students;
+
+        let device = await db.collection("Devices").find({serialNumber: req.body.idSerialNumber}).toArray();
+        students = device[0]['students'];
+                
+        if(students){
+            students.push({name: req.body.student, date: '10/10/2010', id:'123'})
+        } else {
+            students = [];
+            students.push({name: req.body.student, date: '10/10/2010', id:'123'})
         }
+
     }
-    
+
     console.log(students)
     
 
