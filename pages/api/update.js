@@ -22,7 +22,14 @@ export default async (req, res) => {
 
     for(var key in req.body){
         if(req.body[key] && key != 'idSerialNumber'){
-            update[key] = req.body[key]
+            updatedValues[key] = req.body[key]
+        }
+    }
+
+    //This is super bad, please fix later. Was temp for testing. See newField.js in DropIt App.
+    for(var key in updatedValues){
+        if(key == students){
+            updatedValues[key] = {name: updatedValues[key]};
         }
     }
 
