@@ -33,8 +33,8 @@ export default async (req, res) => {
     for(var key in updatedValues){
         if(key == 'students'){
             const device = await db.collection("Devices").find({serialNumber: req.body.idSerialNumber}).toArray();
-            students = device[0][students];
-            students.push({name: updatedValues[key], date: '10/10/2010', id:'123'})
+            students = device;
+            //students.push({name: updatedValues[key], date: '10/10/2010', id:'123'})
         }
     }
     
