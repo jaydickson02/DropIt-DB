@@ -30,7 +30,8 @@ export default async (req, res) => {
     for(var key in updatedValues){
         if(key == 'students'){
             let studentArray = req.body.prevStudents;
-            studentArray.push({name: updatedValues[key], date: '10/10/2010', id:'123'})
+            console.log(studentArray);
+            
             updatedValues[key] = studentArray;
         }
     }
