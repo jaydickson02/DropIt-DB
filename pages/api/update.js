@@ -22,7 +22,6 @@ export default async (req, res) => {
     let updatedValues = {};
 
     for(var key in req.body){
-        if(req.body[key] && key != 'idSerialNumber' && key != 'prevStudents'){
         if(req.body[key] && key != 'idSerialNumber'){
             updatedValues[key] = req.body[key]
         }
