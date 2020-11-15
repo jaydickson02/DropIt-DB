@@ -33,6 +33,9 @@ export default async (req, res) => {
         }
     }
 
+    console.log(updatedValues);
+    console.log(req.body.idSerialNumber);
+    
     const { db } = await connectToDatabase();
 
     await db.collection("Devices").updateOne(
