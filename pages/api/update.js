@@ -21,7 +21,7 @@ export default async (req, res) => {
     let updatedValues = {};
 
     for(var key in req.body){
-        if(req.body[key] && key != 'idSerialNumber'){
+        if(req.body[key] && key != 'idSerialNumber' && key != 'prevStudents'){
             updatedValues[key] = req.body[key]
         }
     }
@@ -29,7 +29,9 @@ export default async (req, res) => {
     //This is super bad, please fix later. Was temp for testing. See newField.js in DropIt App.
     for(var key in updatedValues){
         if(key == 'students'){
-            updatedValues[key] = [{name: updatedValues[key], date: '10/10/2010', id:'123'}];
+            let studentArray = req.body.prevStudents;
+            studentArray.push({name: updatedValues[key], date: '10/10/2010', id:'123'})
+            updatedValues[key] = studentArray;
         }
     }
 
