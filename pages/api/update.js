@@ -29,7 +29,7 @@ export default async (req, res) => {
     //This is super bad, please fix later. Was temp for testing. See newField.js in DropIt App.
     for(var key in updatedValues){
         if(key == 'students'){
-            updatedValues[key] = {0: {name: updatedValues[key], date: '10/10/2010', id:'123'}};
+            updatedValues[key] = [{name: updatedValues[key], date: '10/10/2010', id:'123'}];
         }
     }
 
