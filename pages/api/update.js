@@ -31,13 +31,12 @@ export default async (req, res) => {
         if(key == 'students'){
             let studentArray = req.body.prevStudents;
             console.log(studentArray);
-            
+            console.log(studentArray.length);
+            studentArray.push({name: updatedValues[key], date: '10/10/2010', id:'123'})
             updatedValues[key] = studentArray;
         }
     }
 
-    console.log(updatedValues);
-    console.log('idNum ' + req.body.idSerialNumber);
 
     const { db } = await connectToDatabase();
 
