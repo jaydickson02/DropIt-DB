@@ -32,7 +32,7 @@ export default async (req, res) => {
     //This is super bad, please fix later. Was temp for testing. See newField.js in DropIt App.
     for(var key in updatedValues){
         if(key == 'students'){
-            const device = await db.collection("Devices").find({serialNumber: idSerialNumber}).toArray();
+            const device = await db.collection("Devices").find({serialNumber: req.body.idSerialNumber}).toArray();
             students = device[0][students];
             students.push({name: updatedValues[key], date: '10/10/2010', id:'123'})
         }
