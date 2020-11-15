@@ -18,7 +18,7 @@ export default async (req, res) => {
 
   if (req.method === 'POST') {
 
-    
+    let students;
     let updatedValues = {};
 
     //Filters values that need extra formatting before being updated in the db. Future proofs adding various values down the line.
@@ -32,8 +32,7 @@ export default async (req, res) => {
 
     //Handles student update, ensures previous students are not removed, i'm sure there is a way to do this without re-adding every student. Fix later.
     if(req.body.student){
-        let students;
-
+        
         let device = await db.collection("Devices").find({serialNumber: req.body.idSerialNumber}).toArray();
         students = device[0]['students'];
                 
