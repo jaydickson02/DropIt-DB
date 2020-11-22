@@ -22,7 +22,7 @@ export default async (req, res) => {
       name: req.body.name, 
       id: req.body.studentNumber,
       date: req.body.date,
-      chromebook: req.body.device
+      device: req.body.device
     };
 
     const { db } = await connectToDatabase();
@@ -32,7 +32,7 @@ export default async (req, res) => {
       console.log("1 document inserted");
     });
 
-    res.status(200).send('Device Registered');
+    res.status(200).send('User Registered');
   } else {
     res.send('No request found');
   }
