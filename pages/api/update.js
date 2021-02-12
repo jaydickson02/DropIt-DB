@@ -60,11 +60,7 @@ export default async (req, res) => {
      )
 
     res.status(200)
-    .header(
-    'Access-Control-Allow-Origin: *',
-    'Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'
-    )
+    .header("Access-Control-Allow-Origin", "*")
     .send('Entry Updated');
 
   } else {
