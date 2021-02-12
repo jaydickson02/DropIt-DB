@@ -59,9 +59,9 @@ export default async (req, res) => {
         }
      )
 
-    res.status(200)
-    .header("Access-Control-Allow-Origin", "*")
-    .send('Entry Updated');
+    res.status(200).send('Entry Updated');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
   } else {
     res.send('No request found');
