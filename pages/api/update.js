@@ -62,7 +62,6 @@ export default async (req, res) => {
      )
 
     res.status(200)
-    .header("Access-Control-Allow-Origin", "*")
     .send('Entry Updated');
 
   } else {
