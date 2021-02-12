@@ -14,7 +14,7 @@ import initMiddleware from '../../lib/init_middleware';
 
 export default async (req, res) => {
 
-  //await cors(req, res);
+  app.use(cors());
 
   if (req.method === 'POST') {
 
@@ -61,9 +61,7 @@ export default async (req, res) => {
         }
      )
 
-    res.status(200)
-    .header("Access-Control-Allow-Origin", "*")
-    .send('Entry Updated');
+    res.status(200).send('Entry Updated');
 
   } else {
     res.send('No request found');
