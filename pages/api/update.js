@@ -37,10 +37,13 @@ export default async (req, res) => {
         students = device[0]['students'];
                 
         if(students){
-            students.push({name: req.body.student, date: '10/10/2010', id:'123'})
+          //Add student to device array
+            students.push({name: req.body.student, date: '10/10/2010', id: req.body.id})
         } else {
+
+          //If students entry dosen't exist create it and add the data
             students = [];
-            students.push({name: req.body.student, date: '10/10/2010', id:'123'})
+            students.push({name: req.body.student, date: '10/10/2010', id: req.body.id})
         }
 
         updatedValues['students'] = students;
