@@ -14,8 +14,6 @@ import initMiddleware from '../../lib/init_middleware';
 
 export default async (req, res) => {
 
-  app.use(cors());
-
   if (req.method === 'POST') {
 
     let updatedValues = {};
@@ -61,7 +59,13 @@ export default async (req, res) => {
         }
      )
 
-    res.status(200).send('Entry Updated');
+    res.status(200)
+    .header(
+    'Access-Control-Allow-Origin: *',
+    'Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'
+    )
+    .send('Entry Updated');
 
   } else {
     res.send('No request found');
