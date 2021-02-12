@@ -14,6 +14,8 @@ import initMiddleware from '../../lib/init_middleware';
 
 export default async (req, res) => {
 
+  res.header("Access-Control-Allow-Origin", "*");
+
   if (req.method === 'POST') {
 
     let updatedValues = {};
