@@ -3,18 +3,18 @@ import Cors from 'cors';
 import initMiddleware from '../../lib/init_middleware';
 
 // Initialize the cors middleware
-/*const cors = initMiddleware(
+const cors = initMiddleware(
   // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
   Cors({
-    origin: false,
+    origin: '*',
     // Only allow requests with GET, POST and OPTIONS
-    
+    methods: ['GET', 'POST', 'OPTIONS'],
   })
-)*/
+)
 
 export default async (req, res) => {
 
-  res.header("Access-Control-Allow-Origin", "*");
+  await cors(req, res);
 
   if (req.method === 'POST') {
 
@@ -61,9 +61,9 @@ export default async (req, res) => {
         }
      )
 
-    res.status(200).send('Entry Updated');
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.status(200)
+    .header("Access-Control-Allow-Origin", "*")
+    .send('Entry Updated');
 
   } else {
     res.send('No request found');
