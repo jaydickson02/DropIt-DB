@@ -63,7 +63,7 @@ export default async (req, res) => {
 
      const devices = await db
     .collection("Devices")
-    .find({})
+    .find({'serialNumber': req.body.idSerialNumber})
     //.sort({ metacritic: -1 })
     .limit(20)
     .toArray();
