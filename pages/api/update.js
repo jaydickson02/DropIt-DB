@@ -61,8 +61,16 @@ export default async (req, res) => {
         }
      )
 
+     const devices = await db
+    .collection("Devices")
+    .find({})
+    //.sort({ metacritic: -1 })
+    .limit(20)
+    .toArray();
+
+
     res.status(200)
-    .send('Entry Updated');
+    .json(devices);
 
   } else {
     res.send('No request found');
